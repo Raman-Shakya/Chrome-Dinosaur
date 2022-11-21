@@ -32,8 +32,6 @@ class Cactus:
         # turtle for cactus itself
         self.stamper = turtle.Turtle()
         self.stamper.penup()
-        self.stamper.shape('crow2.gif')
-        # self.stamper.shapesize(stretch_len=self.width/20, stretch_wid=self.height/20)
     
     def make_chunk(self): # return type: (no of obj, distance after, type of obj(1=Cactus, 2=crow))
         if random.random() < 0.2: # assuming 20% chance of getting crow
@@ -68,13 +66,13 @@ class Cactus:
             for j in range(self.positions[i][0]):
                 if self.positions[i][-1] == 1:
                     self.stamper.goto(pointer, self.ground_m_body)
-                    self.stamper.shape('cactus.gif')
+                    self.stamper.shape('images/cactus.gif')
                 else:
                     self.stamper.goto(pointer, self.ground + self.crow_height_g)
                     if self.crow_state:
-                        self.stamper.shape('crow.gif')
+                        self.stamper.shape('images/crow.gif')
                     else:
-                        self.stamper.shape('crow2.gif')
+                        self.stamper.shape('images/crow2.gif')
 
                 self.stamper.stamp()
                 pointer += self.width

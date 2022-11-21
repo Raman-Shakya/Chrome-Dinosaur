@@ -4,6 +4,7 @@ import time
 from Settings import Settings
 from Dino import Dino
 from Cactus import Cactus
+from cloud import Cloud
 
 setting = Settings(width=600, height=400, ground=-130) # instantiating settings
 
@@ -13,12 +14,13 @@ Screen.tracer(0,0)
 Screen.setup(setting.width, setting.height)
 
 # registering images (dino and cactus)
-Screen.register_shape('dino.gif')
-Screen.register_shape('dino2.gif')
-Screen.register_shape('dino3.gif')
-Screen.register_shape('cactus.gif')
-Screen.register_shape('crow.gif')
-Screen.register_shape('crow2.gif')
+Screen.register_shape('images/dino.gif')
+Screen.register_shape('images/dino2.gif')
+Screen.register_shape('images/dino3.gif')
+Screen.register_shape('images/cactus.gif')
+Screen.register_shape('images/crow.gif')
+Screen.register_shape('images/crow2.gif')
+Screen.register_shape('images/cloud.gif')
 
 
 
@@ -42,6 +44,7 @@ setting.score = 0
 # instantiating dino and cactus
 dino = Dino(0, 0, setting)
 cactus = Cactus(setting)
+cloud  = Cloud(setting)
 
 draw_board()
 
@@ -53,9 +56,10 @@ while True:
 
     # event listeners
     Screen.onkey(dino.jump, 'Up')
-    Screen.onkey(dino.jump, ' ')
+    Screen.onkey(dino.jump, 'space')
 
     # rendering
+    cloud.render()
     dino.render()
     if cactus.render(dino): # cactus.render returns false when dino collides with cactus
         break

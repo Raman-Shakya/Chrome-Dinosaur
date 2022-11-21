@@ -15,13 +15,13 @@ class Dino:
         self.state_1   = True
         self.cnt_frame = 0
 
-        self.dino  = "dino.gif"
-        self.dino1 = "dino2.gif"
-        self.dino2 = "dino3.gif"
+        self.dino  = "images/dino.gif"
+        self.dino1 = "images/dino2.gif"
+        self.dino2 = "images/dino3.gif"
 
         self.ground_m_body = setting.ground+self.height/2
         self.stamp = turtle.Turtle()
-        self.stamp.shape('dino.gif')
+        self.stamp.shape(self.dino)
         self.stamp.shapesize(stretch_wid=self.height/20, stretch_len=self.width/20)
         self.stamp.penup()
 
